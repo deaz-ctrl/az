@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(45deg, #a8d8f0, #66b5e0);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 2s;
+        }
+        .memory-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .memory-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .memory-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .letter {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2B4F60;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            max-width: 600px;
+            line-height: 1.8;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        .timeline-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 1s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            text-align: left;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #66b5e0;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            background: white;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+        }
+        .memory-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        p {
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .letter h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #2B4F60;
+            margin-bottom: 20px;
+        }
+        .audio-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .audio-control:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Untuk Angel,</h1>
+        <p>Klik untuk membuka perjalanan kenangan kita...</p>
+        
+        <div class="memory-container">
+            <div class="memory-card" onclick="showMemory(1)">
+                <h3>Awal Ketemu</h3>
+                <p>klik untuk melihat awal kita ketemu...</p>
+            </div>
+            <div class="memory-card" onclick="showMemory(2)">
+                <h3>Momen Spesial</h3>
+                <p>Klik untuk melihat...</p>
+            </div>
+            <div class="memory-card" onclick="showMemory(3)">
+                <h3>Pelajaran</h3>
+                <p>pelajaran yang didapat...</p>
+            </div>
+        </div>
+
+        <div id="letter" class="letter">
+            <h2>Surat untuk Angel</h2>
+            <p>Haloo Angel!! makasih banyak karna masih ingat dengan ultah gw. jujur gw seneng banget krna diucapin sama lu di spesial ulang tahun ke 17! dan karna lu udah buka website ini.. gw anggap itu sebagai kadonya.</p>
+            <p>btw, boleh cerita ga? dulu gw kenapa bodoh banget ya...  padahal sudah jelas klo gw suka banget sama lu tapi bisa-bisanya gw lebih banyak ngabisin waktu di game dibanding waktu sama lu, setelah lu ngajak udahan disitu gw langsung gatau harus apa, gua langsung cari kesibukan lain biar bisa lupa. dan awalnya trick itu berhasil (di siang hari), tapi pas tidur ntah kenapa lu muncul terus di mimpi gw (disana kita ngobrol kayak biasanya seolah kita masih pacaran, eh bukan pacar juga ya hts) bangun" nangis gua jir. kwowkwk jgn dibully pls :v bahkan sampai sekarang juga kadang muncul di mimpi gw (walau ga sesering pas awalnya)</p>
+            <p>dulu sebelum lu ngajak udahan, gua udah bertekad buat menerima keputusan lu jika suatu saat lu memilih untuk udahan, dan sekarang gua menyesal karna sudah melakukan itu harusnya jangan biarin pergi :v</p>
+            <p>misalkan gw ngajak buat balik lagi lu mau ga? (misalkan aja inimah tapi klo lu mau boleh banget) jawab apapun!
+            dan terimakasih karna sudah membaca sampai habis. semoga harimu indah di hari sabtu ini.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">awalnya gua sama ravhel lagi iseng main spleef game ketemulah entitas bernama feli dan singkat cerita kami bertiga main parkour lalu tiba" muncul temen feli yang namanya rumit ntah Xichgt (mungkin?) disitu gw mikir (lucu namanya, pasti ni orang hode) trs di grup angel kirim foto komputer tapi ga sengaja kacanya ngarah ke muka dan ternyata beneran cewe jir, terus gw cobalah reply privately dan ternyata dibales</div>
+            <div class="timeline-item">lu masih inget ga waktu gw sakit? jujur itu momen paling berkesan dalam hidup gw, akan selalu teringat pastinya. dan 1 lagi, pas lu nyuruh gua post vid "perfect" disitu lu keliatan manis banget woi wkwkwk terus gua bilang "captionnya apa?" klo ga dijawab berarti gw tulis "mine <3" . indahnyaa butterfly era</div>
+            <div class="timeline-item">semakin dewasa semakin sadar klo main game itu ga guna, jujur gw agak nyesel dulu ngabisin banyak waktu di game</div>
+            <div class="timeline-item">Harapan untuk masa depan</div>
+        </div>
+
+        <button class="btn" onclick="showLetter()">Ayo buka suratnya!</button>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/river-flows-in-you.mp3" type="audio/mp3">
+    </audio>
+    
+    <div class="audio-control" onclick="toggleMusic()">🎵</div>
+
+    <script>
+        function showMemory(id) {
+            const items = document.querySelectorAll('.timeline-item');
+            items[id-1].style.opacity = '1';
+            items[id-1].style.transform = 'translateX(0)';
+        }
+
+        function showLetter() {
+            document.getElementById('letter').style.display = 'block';
+        }
+
+        let isPlaying = false;
+        const music = document.getElementById('bgMusic');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+            } else {
+                music.play();
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Auto-play music when user interacts with page
+        document.body.addEventListener('click', function() {
+            if (!isPlaying) {
+                music.play();
+                isPlaying = true;
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
